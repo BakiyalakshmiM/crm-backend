@@ -1,0 +1,104 @@
+
+### User Signup
+POST http://localhost:8217/v1/user/
+Content-Type: application/json
+
+{
+    "name": "Lakshmi",
+    "company": "c",
+    "address": "add",
+    "phone": "9123456789",
+    "email": "mail6@gmail.com",
+    "password": "passhjklkjkk"
+}
+
+#### User Login
+
+POST http://localhost:8217/v1/user/login/
+Content-Type: application/json
+
+{
+    "email": "mail6@gmail.com",
+    "password": "password"
+}
+
+##### Get User
+
+GET http://localhost:8217/v1/user/
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1haWw2QGdtYWlsLmNvbSIsImlhdCI6MTcxNDk2NjY4NiwiZXhwIjoxNzE0OTcwMjg2fQ.a1bX3bekRyGxRMmcz6xxbQPgj_a8gmGdhQWhdEc-GHc
+
+##### Get Access Token Using Refresh Token
+
+GET http://localhost:8217/v1/tokens/
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1haWw2QGdtYWlsLmNvbSIsImlhdCI6MTcxNTA4NTI2OCwiZXhwIjoxNzE1MDg3MDY4fQ.9CKB_FzCbraGz_kAix37G1B1bBQFS4ZsIJA_noBvVk4
+##### Reset Password
+
+POST http://localhost:8217/v1/user/reset-password
+Content-Type: application/json
+
+{
+    "email": "mail6@gmail.com"
+}
+
+
+##### Update New Password
+
+PATCH http://localhost:8217/v1/user/reset-password
+Content-Type: application/json
+
+{
+    "email": "mail6@gmail.com",
+    "pin": 381844,
+    "newPassword": "password"
+}
+
+
+##### User Logout
+
+DELETE http://localhost:8217/v1/user/logout
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1haWw2QGdtYWlsLmNvbSIsImlhdCI6MTcxNDgzMzYxOSwiZXhwIjoxNzE0ODM3MjE5fQ.2UP6g7yuTwLfYhU5wMch9u3N-EuuOqV3_3nDUX9zb9w
+
+#### Create Ticket
+
+POST http://localhost:8217/v1/ticket/
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1haWw2QGdtYWlsLmNvbSIsImlhdCI6MTcxNDgzMzYxOSwiZXhwIjoxNzE0ODM3MjE5fQ.2UP6g7yuTwLfYhU5wMch9u3N-EuuOqV3_3nDUX9zb9w
+Content-Type: application/json
+
+ {  
+    "subject": "subject",
+    "sender": "sender",
+    "message": "message"
+}
+
+#### Get Tickets Based On userId
+
+GET http://localhost:8217/v1/ticket/
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1haWw2QGdtYWlsLmNvbSIsImlhdCI6MTcxNDgyOTk2OCwiZXhwIjoxNzE0ODMzNTY4fQ.POB_Gx-hnxstU0CDRj72w2gu-KltdBJF2wIQdDHwJqI
+
+#### Get Ticket By Ticket Id
+
+GET http://localhost:8217/v1/ticket/6635fa713eb7d8986e2b415d
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1haWw2QGdtYWlsLmNvbSIsImlhdCI6MTcxNTE3MDgxMCwiZXhwIjoxNzE1MTc0NDEwfQ.vq8NVkLcgQnRWPLb1ypuWXI2zH1uqSwuQn4xlFIp95Q
+
+#### PUT Conversation in the ticket
+
+
+PUT http://localhost:8217/v1/ticket/6635fa38d57783275cf60362
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1haWw2QGdtYWlsLmNvbSIsImlhdCI6MTcxNDgzMzcyNywiZXhwIjoxNzE0ODM3MzI3fQ.FHqbFEGCM8mEz_lWPmrhQ8Ky0DBIU04C7MeckpH21I0
+Content-Type: application/json
+
+{  
+    "sender": "usender",
+    "message": "umessage"
+}
+
+#### PATCH the status to Closed
+
+PATCH http://localhost:8217/v1/ticket/close-ticket/6635fa38d57783275cf60362
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1haWw2QGdtYWlsLmNvbSIsImlhdCI6MTcxNDgzMzcyNywiZXhwIjoxNzE0ODM3MzI3fQ.FHqbFEGCM8mEz_lWPmrhQ8Ky0DBIU04C7MeckpH21I0
+
+
+#### DELETE the ticket
+
+DELETE http://localhost:8217/v1/ticket/6635fa38d57783275cf60362
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1haWw2QGdtYWlsLmNvbSIsImlhdCI6MTcxNDgzMzcyNywiZXhwIjoxNzE0ODM3MzI3fQ.FHqbFEGCM8mEz_lWPmrhQ8Ky0DBIU04C7MeckpH21I0
